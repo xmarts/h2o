@@ -2,3 +2,8 @@
 	path = xmarts/h20
 	url = git@github.com:xmarts/h20.git
 	branch = 14.0-josuealfaro
+
+[submodule "xmarts/SLI"]
+	path = xmarts/SLI
+	url = git@github.com:xmarts/SLI.git
+	branch = 14.0-fletex
