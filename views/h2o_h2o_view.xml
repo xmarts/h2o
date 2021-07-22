@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+	<record model="ir.ui.view" id="h2o_h2o_form_view">
+        <field name="name">H2O</field>
+        <field name="model">h2o.h2o</field>
+        <field name="arch" type="xml">
+            <form string="H2O Form">
+                <sheet>
+                    <group>
+                        <field name="travel_cost_id"/>
+                        <field name="sale_order_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="h2o_h2o_tree_view">
+        <field name="name">H2O</field>
+        <field name="model">h2o.h2o</field>
+        <field name="arch" type="xml">
+            <tree string="H2O Tree">
+                <field name="travel_cost_id"/>
+                <field name="sale_order_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="h2o_h2o_list_action_window">
+        <field name="name">H2O</field>
+        <field name="res_model">h2o.h2o</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">Create the first record
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="h2o_h2o_menu_root" 
+              name="H2O" 
+              action="h2o_h2o_list_action_window"/>
+    
+</odoo>

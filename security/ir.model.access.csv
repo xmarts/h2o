@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_h2o_h2o,h2o.h2o,model_h2o_h2o,base.group_user,1,1,1,1
+access_employee_employee,employee.employee,model_employee_employee,base.group_user,1,1,1,1
+access_unidades_unidades,unidades.unidades,model_unidades_unidades,base.group_user,1,1,1,1
+access_travel_cost,travel.cost,model_travel_cost,base.group_user,1,1,1,1
+access_commission_commission,commission.commission,model_commission_commission,base.group_user,1,1,1,1
+access_origen_travel,origen.travel,model_origen_travel,base.group_user,1,1,1,1
+access_payment_driver,payment.driver,model_payment_driver,base.group_user,1,1,1,1
+access_sale_order,sale.order,model_sale_order,base.group_user,1,1,1,1
+access_sale_order_wizard,sale.order.wizard,model_sale_order_wizard,base.group_user,1,1,1,1
+access_res_partner,res.partner,model_res_partner,base.group_user,1,1,1,1

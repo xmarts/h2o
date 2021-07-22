@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+	<record model="ir.ui.view" id="commission_commission_form_view">
+        <field name="name">Comisiones extra</field>
+        <field name="model">commission.commission</field>
+        <field name="arch" type="xml">
+            <form string="Comisiones Extra Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="cost_commission"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="commission_commission_tree_view">
+        <field name="name">Comisiones extra</field>
+        <field name="model">commission.commission</field>
+        <field name="arch" type="xml">
+            <tree string="Comisiones Extra Tree">
+                <field name="name"/>
+                <field name="cost_commission"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="commission_commission_list_action_window">
+        <field name="name">Comisiones extra</field>
+        <field name="res_model">commission.commission</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="h2o_commission_menu" name="Comisiones extra"
+              parent="h2o_h2o_menu_root"
+              action="commission_commission_list_action_window"/>
+    
+</odoo>

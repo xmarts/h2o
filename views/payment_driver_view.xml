@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+	<record model="ir.ui.view" id="payment_driver_form_view">
+        <field name="name">Salario de chofer</field>
+        <field name="model">payment.driver</field>
+        <field name="arch" type="xml">
+            <form string="Salario De Chofer Form">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="driver_id"/>
+                            <field name="salary_driver"/>
+                        </group>
+                        <group>
+                            <field name="commission_id"/>
+                            <field name="commission_travel"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="payment_driver_tree_view">
+        <field name="name">Salario de chofer</field>
+        <field name="model">payment.driver</field>
+        <field name="arch" type="xml">
+            <tree string="Salario De Chofer Tree">
+                <field name="driver_id"/>
+                <field name="salary_driver"/>
+                <field name="commission_id"/>
+                <field name="commission_travel"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="payment_driver_list_action_window">
+        <field name="name">Salario de chofer</field>
+        <field name="res_model">payment.driver</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="payment_driver_menu" name="Salario de chofer"
+              parent="h2o_h2o_menu_root"
+              action="payment_driver_list_action_window"/>
+    
+</odoo>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+  <record model="ir.ui.view" id="sale_order_form_view">
+    <field name="name">Ventas</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="replace">
+                <header>
+                    <field name="sale_status" widget="statusbar" statusbar_visible="waiting,started,finished"/>
+                    <button name="waiting_progressbar" string="En espera" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('sale_status','=','waiting'), '|', ('sale_status','=','started'), ('sale_status','=','finished')]}"/>
+                    <button name="started_progressbar" string="Confirmado" type="object" class="oe_highlight" attrs="{'invisible': ['!', ('sale_status', '=', 'waiting')]}"/>
+                    <button name="done_progressbar" string="Terminado" type="object" class="oe_highlight" attrs="{'invisible': ['!', ('sale_status','=','started')]}"/>
+                    <field name="state" invisible="1"/>
+                </header>
+            </xpath>
+            <sheet>
+                <xpath expr="//group[@name='sale_header']" position="after">
+                    <notebook>
+                        <page string="H2O">
+                            <group>
+                                <group>
+                                    <field name="h2o_id"/>
+                                    <field name="driver_id"/>
+                                    <field name="vehicle_id"/>
+                                </group>
+                                <group>
+                                    <field name="folio" readonly="1"/>
+                                    <field name="date_travel"/>
+                                    <field name="customer_id"/>
+                                    <field name="origen_travel_id"/>
+                                    <field name="street_name"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    <footer>
+                        <group>
+                            <field name="travel_status" widget="statusbar" statusbar_visible="started,finished,canceled"/>
+                        </group>
+                        <group>
+                            <button name="started_travel_progressbar" string="Iniciar viaje" type="object" class="oe_highlight" attrs="{'invisible': ['|', ('travel_status','=','started'), '|', ('travel_status','=','finished'), ('travel_status','=','canceled')]}"/>
+                        </group>
+                        <group>
+                            <button name="completed_travel_progressbar" string="Terminado" type="object" default_focus="1" class="btn-primary" attrs="{'invisible': ['|', '!', ('travel_status', '=', 'started'), ('travel_status', '=', 'canceled')]}"/>
+                            <button name="%(h2o.sale_order_wizard_action_window)d" string="Cancelado" type="action" class="btn-secondary" attrs="{'invisible': ['|', '!', ('travel_status','=','started'), ('travel_status', '=', 'finished')]}"/>
+                        </group>
+                    </footer>
+                </xpath>
+            </sheet>
+        </field>
+  </record>
+
+    <record model="ir.ui.view" id="sale_order_tree_view">
+        <field name="name">Ventas</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="replace">
+                <tree string="Ventas Tree">
+                    <field name="h2o_id"/>
+                    <field name="driver_id"/>
+                    <field name="vehicle_id"/>
+                    <field name="folio"/>
+                    <field name="date_travel"/>
+                    <field name="customer_id"/>
+                    <field name="origen_travel_id"/>
+                    <field name="street_name"/>
+                    <field name="sale_status"/>
+                </tree>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="sale_order_list_action_window">
+        <field name="name">Ventas</field>
+        <field name="res_model">sale.order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="sale_order_menu"
+              name="Ventas"
+              parent="h2o_h2o_menu_root"
+              action="sale_order_list_action_window"/>
+
+</odoo>
