@@ -1,3 +1,6 @@
 [submodule "h20"]
 	path = h20
 	url = git@github.com:xmarts/h20.git
+[submodule "l10n-einvoice-mx"]
+	path = l10n-einvoice-mx
+	url = git@github.com:xmarts/l10n-einvoice-mx.git
